@@ -3,6 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import useFetch from '../../../common/hooks/useFetch';
+
+// Icons
+import RightArrowIcon from '../../../icons/RightArrow';
+
+// Components
 import MovieCard from '../../../components/movie-card';
 
 const TopRatedMovies = () => {
@@ -17,7 +22,10 @@ const TopRatedMovies = () => {
                     <div className="cf_movies-sec__header">
                         <h3>Top Rated Movies</h3>
 
-                        <Link to="/movies/upcoming">View All</Link>
+                        <Link to="/movies/top-rated" className="cf_movies-sec__header-view">
+                            View All
+                            <RightArrowIcon />
+                        </Link>
                     </div>
                     
                     <div className="cf_movies-sec__group">
