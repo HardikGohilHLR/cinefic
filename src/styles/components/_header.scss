@@ -1,16 +1,4 @@
-// Headers
-.fb_title-header {
-    background-color: $blue;
-    text-align: center;
-    padding: 30px;
-    border-radius: 15px;
-    margin: 30px 0;
-
-    h1 {
-        color: $white;
-    }
-}
-
+// Header
 header {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
     position: sticky;
@@ -19,72 +7,79 @@ header {
     z-index: 5;
 }
 
+.cf_logo {
+    margin-right: 100px;
+}
+
 .cf_header {
     @include flexCenterBetween;
     padding: 15px 0;
-
-    nav {
-        @include flexCenter;
-    }
+    position: relative;
+    overflow: hidden;
 
     &-logo {
         max-width: 180px;
     }
 
-    &-btns {
-        display: flex;
-        align-items: center;
-        a {
-            margin-left: 10px;
-        }
-    }
-}
-
-.fb_user-info {
-    position: relative;
-    margin-right: 20px;
-    max-width: 250px;
-
-    &__desc {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    &__details {
-        margin-left: 10px;
-        p {
-            @include fontStyle(600, 14, 18, $black);
-        }
-        span {
-            @include fontStyle(400, 12, 14, $black);
-        }
-    }
-
-
-    &-options {
-        position: absolute;
-        top: 55px;
-        left: 0;
-        background-color: $white;
-        box-shadow: 0px 4px 12px rgba($black, 0.2);
-        max-width: 150px;
-        width: 100%;
-        border-radius: 5px;
-        padding: 6px 0;
+    nav {
+        @include flexCenter;
 
         li {
-            cursor: pointer;
-
-            a, span {
-                @include fontStyle(400, 16, 20, $black);
-                padding: 6px 12px;
-                display: block;
-
-                &:hover {
-                    color: $blue;
-                }
+            margin-right: 20px;
+            a {
+                @include fontStyle(600, 16, 20, $black);
+                padding: 5px 20px;
             }
         }
+    }
+
+    .cf_search-movie {
+        // position: relative;
+
+        &__icon {
+            display: block;
+            cursor: pointer;
+            svg {
+                @include square(20px);
+            }
+        }
+
+        &__input { 
+            position: absolute;
+            width: 400px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -400px;
+            transition: 0.3s linear;
+
+            &.active {
+                right: 0;
+            }
+            
+            input {      
+                @include fontStyle(400, 14, 18, $black);
+                padding: 10px 60px 10px 20px;
+                border-radius: 4px;
+                background-color: $white;
+                border: 1px solid #bdc3c7;
+                outline: none;
+                width: 100%;
+                display: block;
+            }
+
+            span {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                display: flex;
+                svg {
+                    @include square(14px);
+                }
+            }
+
+        }
+        
     }
 }
