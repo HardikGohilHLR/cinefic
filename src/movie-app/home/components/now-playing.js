@@ -7,7 +7,7 @@ import MovieCard from '../../../components/movie-card';
 
 const NowPlayingMovies = () => {
 
-    const { data, loading } = useFetch('/movie/now_playing', 'data');
+    const { data, loading } = useFetch('/movie/now_playing', 'data', 'region=IN');
 
     console.log('now_playing', data, loading);
    
@@ -27,7 +27,7 @@ const NowPlayingMovies = () => {
                         {
                             (data?.length !== 0 || loading) &&
 
-                                data?.results?.slice(0, 5)?.map(movie => {
+                                data?.results?.slice(0, 20)?.map(movie => {
                                     return (
                                         <MovieCard movie={movie} key={movie?.id} loading={loading} />
                                     )

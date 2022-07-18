@@ -2,8 +2,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { GetMovieImage } from '../../../common/functions';
 import useFetch from '../../../common/hooks/useFetch';
+import GetImage from '../../../components/get-image';
 
 const LatestMovies = () => {
 
@@ -28,7 +28,7 @@ const LatestMovies = () => {
                                 <div>Loading</div>
                             :
                             <div key={data?.id} onClick={() => getMovieDetails(data?.id)}>
-                                <GetMovieImage movie={data} />
+                                <GetImage data={data} path="poster_path" />
                                 <p>{data?.title}</p>
                             </div>
                         :

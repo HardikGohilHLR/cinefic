@@ -7,18 +7,6 @@ export const formatDate = (date, format) => {
     return moment(date).format(format);
 }
 
-// Get Movie Image
-export const GetMovieImage = ({movie}) => {
-
-    const getImage = useMemo(() => {
-        return `https://image.tmdb.org/t/p/original${movie?.poster_path}`;
-    }, [movie?.poster_path]);
-
-    return (
-        <img src={getImage} alt={movie?.title} />
-    )
-}
-
 export const convertMoney = (value) => {
     // Nine Zeroes for Billions
     return Math.abs(Number(value)) >= 1.0e+9
