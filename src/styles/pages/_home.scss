@@ -1,7 +1,11 @@
 // Home
-.cf_movies-sec {
-    padding-bottom: 50px;
+.cf_home {
+    padding-top: 30px;    
+}
 
+.cf_movies-sec {
+    padding: 30px 0;
+    
     &__header {
         @include flexCenterBetween;
         padding: 15px 0;
@@ -11,65 +15,5 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 25px;
-    }
-}
-
-
-// Movie Card
-.cf_movie-card {
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-
-    &:hover {
-        &:before {
-            content: '';
-            height: 80px;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: linear-gradient(to bottom, $black, transparent);
-            transition: 0.25s linear;
-        }
-
-        .cf_movie-card__rating {
-            opacity: 1;
-        }
-    }
-
-    &__rating {
-        opacity: 0;
-        transition: 0.25s linear;
-
-        span {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgb(245, 197, 24);
-            padding: 3px 10px;
-            display: inline-block;
-            border-radius: 5px;
-            @include fontStyle(600, 12, 16, $black);
-        }
-    }
-
-    &__image {
-        border-radius: 10px;
-        height: 300px;
-        overflow: hidden;
-        font-size: 0;
-
-        img {
-            max-height: 300px;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-    &__info {
-        padding: 10px 20px;
-        text-align: center;
     }
 }

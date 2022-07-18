@@ -13,24 +13,22 @@ const Home = () => {
     return (
         <React.Fragment>
             <div className="cf_home">
-                <div className="cf_container">
 
-                    {/* Latest Movies */}
-                    {/* <LatestMovies /> */}
+                {/* Latest Movies */}
+                {/* <LatestMovies /> */}
 
-                    {/* Upcoming Movies */}
-                    <NowPlayingMovies />
+                {/* Upcoming Movies */}
+                <NowPlayingMovies />
 
-                    {/* Upcoming Movies */}
-                    <UpcomingMovies />
+                {/* Upcoming Movies */}
+                <UpcomingMovies />
 
-                    {/* Top Rated Movies */}
-                    <TopRatedMovies />
+                {/* Top Rated Movies */}
+                <TopRatedMovies />
 
-                    {/* Popular Movies */}
-                    <PopularMovies />  
+                {/* Popular Movies */}
+                <PopularMovies />  
     `
-                </div>
             </div>
         </React.Fragment>
     )

@@ -14,23 +14,25 @@ const TopRatedMovies = () => {
     return (
         <React.Fragment>
             <div className="cf_movies-sec">
+                <div className="cf_container">
 
-                <div className="cf_movies-sec__header">
-                    <h3>Top Rated Movies</h3>
+                    <div className="cf_movies-sec__header">
+                        <h3>Top Rated Movies</h3>
 
-                    <Link to="/movies/upcoming">View All</Link>
-                </div>
-                
-                <div className="cf_movies-sec__group">
-                    {
-                        (data?.length !== 0 || loading) &&
+                        <Link to="/movies/upcoming">View All</Link>
+                    </div>
+                    
+                    <div className="cf_movies-sec__group">
+                        {
+                            (data?.length !== 0 || loading) &&
 
-                            data?.results?.slice(0, 5)?.map(movie => {
-                                return (
-                                    <MovieCard movie={movie} key={movie?.id} loading={loading} />
-                                )
-                            })
-                    }
+                                data?.results?.slice(0, 5)?.map(movie => {
+                                    return (
+                                        <MovieCard movie={movie} key={movie?.id} loading={loading} />
+                                    )
+                                })
+                        }
+                    </div>
                 </div>
             </div>
         </React.Fragment>

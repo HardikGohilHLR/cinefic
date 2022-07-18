@@ -15,22 +15,26 @@ const NowPlayingMovies = () => {
         <React.Fragment>
             <div className="cf_movies-sec">
 
-                <div className="cf_movies-sec__header">
-                    <h3>Now Playing Movies</h3>
+                <div className="cf_container">
 
-                    <Link to="/movies/now-playing">View All</Link>
-                </div>
-                
-                <div className="cf_movies-sec__group">
-                    {
-                        (data?.length !== 0 || loading) &&
+                    <div className="cf_movies-sec__header">
+                        <h3>Now Playing Movies</h3>
 
-                            data?.results?.slice(0, 5)?.map(movie => {
-                                return (
-                                    <MovieCard movie={movie} key={movie?.id} loading={loading} />
-                                )
-                            })
-                    }
+                        <Link to="/movies/now-playing">View All</Link>
+                    </div>
+                    
+                    <div className="cf_movies-sec__group">
+                        {
+                            (data?.length !== 0 || loading) &&
+
+                                data?.results?.slice(0, 5)?.map(movie => {
+                                    return (
+                                        <MovieCard movie={movie} key={movie?.id} loading={loading} />
+                                    )
+                                })
+                        }
+                    </div>
+                    
                 </div>
             </div>
         </React.Fragment>
