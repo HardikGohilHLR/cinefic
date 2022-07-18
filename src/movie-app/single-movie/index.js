@@ -12,29 +12,22 @@ import StarIcon from '../../icons/Star';
 // Components
 import GetImage from '../../components/get-image';
 import SimilarMovies from './components/similar';
+import PlayList from './components/playlist';
+import Cast from './components/cast';
 
 const SingleMovie = () => {
 
     const { id } = useParams();
 
     const { data: movieDetails } = useFetch(`/movie/${id}`, 'data');
-    const { data: movieCast } = useFetch(`/movie/${id}/credits`, 'data');
     const { data: movieVideos } = useFetch(`/movie/${id}/videos`, 'data');
 
     const [movieTrailer, setMovieTrailer] = useState({});
-
-    // console.log('single movie', movieDetails);
-    // console.log('single movie cast', movieCast);
-    // console.log('single movieVideos', movieVideos);
 
     useEffect(() => {
         setMovieTrailer(movieVideos?.results?.find(_ => _?.name === 'Official Trailer' || _?.type === 'Trailer'))      
     }, [movieVideos]);
     
-    const viewAllCast = () => {
-
-    }
-
     return (
         <React.Fragment>
 
@@ -100,37 +93,8 @@ const SingleMovie = () => {
                     }
 
                     {/* Cast */}
-                    {
-                        movieCast?.cast?.length !== 0 &&
-                        <div className="cf_single-movie__credits">
-                            <h4 className="cf_single-movie__title">Cast</h4>
-                            <ul>
-                                {
-                                    movieCast?.cast?.slice(0, 5).map(cast => {
-                                        return (
-                                            <li className="cf_single-movie__cast" key={cast?.id}>
-                                                <div className="cf_single-movie__cast-avatar">
-                                                    <GetImage data={cast} path="profile_path" />
-                                                </div>
+                    <Cast movieId={movieDetails?.id} />
 
-                                                <div className="cf_single-movie__cast-name">
-                                                    { cast?.character?.split('/')?.[0] && <p>{cast?.character?.split('/')?.[0]}</p> }
-                                                    { cast?.original_name && <span>{cast?.original_name}</span> }
-                                                </div>
-                                            </li>
-                                        )
-                                    })
-                                }
-                                
-                                <li className="cf_single-movie__cast">
-                                    <div className="cf_single-movie__cast-avatar view" onClick={viewAllCast}>
-                                        <span>View All</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    
                     {/* Production */}
                     {
                         movieDetails?.production_companies?.length !== 0 &&
@@ -138,15 +102,15 @@ const SingleMovie = () => {
                             <h4 className="cf_single-movie__title">Production</h4>
                             <ul>
                                 {
-                                    movieDetails?.production_companies?.slice(0, 5).map(cast => {
+                                    movieDetails?.production_companies?.slice(0, 5).map(prod => {
                                         return (
-                                            <li key={cast?.id} className="cf_single-movie__prod">
+                                            <li key={prod?.id} className="cf_single-movie__prod">
                                                 <div className="cf_single-movie__prod-avatar">
-                                                    <GetImage data={cast} path="logo_path" />
+                                                    <GetImage data={prod} path="logo_path" />
                                                 </div>
 
                                                 <div className="cf_single-movie__prod-name">
-                                                    <p>{cast?.name}</p>
+                                                    <p>{prod?.name}</p>
                                                 </div>
                                             </li>
                                         )
@@ -160,9 +124,12 @@ const SingleMovie = () => {
                     
                     <p>Revenue: {convertMoney(movieDetails?.revenue || 0) || '-'}</p> */}
 
-                    <a href={`https://www.imdb.com/title/${movieDetails?.imdb_id}`} target="_blank" rel="noopener noreferrer">
+                    {/* <a href={`https://www.imdb.com/title/${movieDetails?.imdb_id}`} target="_blank" rel="noopener noreferrer">
                         View on IMDB
-                    </a>
+                    </a> */}
+
+                    {/* Videos */}
+                    <PlayList movieVideos={movieVideos} />
                 </div>
             </div>
                         
