@@ -1,11 +1,15 @@
 // App
 
-import React from 'react'
+import React from 'react';
+
+import MovieApp from './movie-app';
 
 const App = () => {
 	return (
 		<React.Fragment>
-			Cinfic
+
+			<MovieApp />
+
 		</React.Fragment>
 	)
 }
