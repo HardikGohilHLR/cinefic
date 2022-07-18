@@ -39,18 +39,13 @@ const SingleMovie = () => {
         <React.Fragment>
 
             <div className="cf_single-movie-sec">
-                        
-                {/* <div className="cf_single-movie__info">
-                    <img src={`https://image.tmdb.org/t/p/original${movieDetails?.backdrop_path}`} alt={movieDetails?.title} />
-                </div> */}
 
                 <div className="cf_single-movie__head" style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${movieDetails?.backdrop_path}')`}}>
                     <div className="cf_single-movie__info">
 
                         <div className="d_flex d_align-center d_content-between">
                             <div className="cf_single-movie__info-title">
-                                <h1>{movieDetails?.title}</h1>
-                                
+                                <h1>{movieDetails?.title}</h1>                                
                                 {
                                     movieDetails?.tagline && <h5>{movieDetails?.tagline}</h5>
                                 }
@@ -81,8 +76,11 @@ const SingleMovie = () => {
 
                         <div className="cf_single-movie__votes">
                             <p>
-                                <StarIcon />
-                                {movieDetails?.vote_average?.toFixed(1)} ({convertMoney(movieDetails?.vote_count || 0)} Votes)
+                                {movieDetails?.vote_average?.toFixed(1)} | {convertMoney(movieDetails?.vote_count || 0)} Votes
+                                <span>
+                                    <StarIcon />
+                                    TMDB
+                                </span>
                             </p>
                         </div>
                     </div>

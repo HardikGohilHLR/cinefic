@@ -7,14 +7,14 @@
         padding-bottom: 50px;
 
         p {
-            color: #ecf0f1;
+            color: $white_theme;
             @include mediaFontStyle(14, 22);
             letter-spacing: 0.4px;
         }   
     }
 
     &__title {
-        color: #ecf0f1;
+        color: $white_theme;
         @include mediaFontStyle(18, 22);
         margin-bottom: 20px;
     }
@@ -55,7 +55,7 @@
             }
             
             h5 {
-                color: #ecf0f1;
+                color: $white_theme;
                 padding-top: 5px;
                 @include mediaFontStyle(16, 22);
             }
@@ -110,12 +110,19 @@
     // Votes
     &__votes {
         p {
-            display: flex;
-            align-items: center;
+            @include flexCenter;
         }
-        svg {
-            width: 14px;
-            margin-right: 5px;
+        span {
+            background-color: $tmdb;
+            border-radius: 5px;
+            padding: 3px 10px;
+            margin-left: 10px;
+            @include flexCenter;
+            @include fontStyle(600, 12, 16, $white);
+            svg {
+                width: 14px;
+                margin-right: 5px;
+            }
         }
     }
 
@@ -131,8 +138,8 @@
             border-radius: 50px;
             padding: 8px 20px;
             margin-right: 15px;
-            @include fontStyle(400, 14, 18, #ecf0f1);
-
+            @include fontStyle(400, 12, 16, $white_theme);
+            letter-spacing: 0.4px;
         }
     }
 
