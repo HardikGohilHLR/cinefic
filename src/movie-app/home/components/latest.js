@@ -10,8 +10,6 @@ const LatestMovies = () => {
     const navigate = useNavigate();
     const { data, loading } = useFetch('/movie/latest', 'data');
 
-    console.log('latest', data);
-
     const getMovieDetails = (id) => {
         navigate(`movie/${id}`);
     }

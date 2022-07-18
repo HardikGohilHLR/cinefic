@@ -8,8 +8,6 @@ import MovieCard from '../../../components/movie-card';
 const NowPlayingMovies = () => {
 
     const { data, loading } = useFetch('/movie/now_playing', 'data', 'region=IN');
-
-    console.log('now_playing', data, loading);
    
     return (
         <React.Fragment>

@@ -8,8 +8,6 @@ import MovieCard from '../../../components/movie-card';
 const PopularMovies = () => {
 
     const { data, loading } = useFetch('/movie/popular', 'data');
-
-    console.log('popular', data);
    
     return (
         <React.Fragment>

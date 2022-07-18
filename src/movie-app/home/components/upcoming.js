@@ -8,8 +8,6 @@ import MovieCard from '../../../components/movie-card';
 const UpcomingMovies = () => {
     
     const { data, loading } = useFetch('/movie/upcoming', 'data');
-
-    console.log('upcoming', data);
    
     return (
         <React.Fragment>

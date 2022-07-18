@@ -1,13 +1,12 @@
-// Home - Top Rated Movies
+// Movie Details - Similar Movies
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import useFetch from '../../../common/hooks/useFetch';
 import MovieCard from '../../../components/movie-card';
 
-const TopRatedMovies = () => {
-
-    const { data, loading } = useFetch('/movie/top_rated', 'data');
+const SimilarMovies = ({movieId}) => {
+    
+    const { data, loading } = useFetch(`/movie/${movieId}/similar`, 'data');
    
     return (
         <React.Fragment>
@@ -15,9 +14,7 @@ const TopRatedMovies = () => {
                 <div className="cf_container">
 
                     <div className="cf_movies-sec__header">
-                        <h3>Top Rated Movies</h3>
-
-                        <Link to="/movies/upcoming">View All</Link>
+                        <h3>Similar Movies</h3>
                     </div>
                     
                     <div className="cf_movies-sec__group">
@@ -37,4 +34,4 @@ const TopRatedMovies = () => {
     )
 }
 
-export default TopRatedMovies;
+export default SimilarMovies;

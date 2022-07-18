@@ -4,6 +4,7 @@
 
     &-sec {
         background-color: #171717;
+        padding-bottom: 50px;
 
         p {
             color: #ecf0f1;
@@ -153,6 +154,15 @@
             flex-shrink: 0;
             margin: 0 auto 10px;
 
+            &.view {
+                background-color: #bdc3c7;
+                @include flexCenterCenter;
+                cursor: pointer;
+                span {
+                    @include fontStyle(600, 14, 18, $black);
+                }
+            }
+
             img {
                 border-radius: 50%;
                 @include square(100%);
@@ -170,6 +180,7 @@
                 letter-spacing: 0.4px;
             }
         }
+
         
     }
 
