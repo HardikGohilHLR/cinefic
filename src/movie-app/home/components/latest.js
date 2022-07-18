@@ -1,5 +1,4 @@
 // Home - Latest Movies
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,7 +31,6 @@ const LatestMovies = () => {
                                 <GetMovieImage movie={data} />
                                 <p>{data?.title}</p>
                             </div>
-
                         :
 
                         <div>

@@ -1,6 +1,6 @@
 // Movie app
 
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -12,10 +12,12 @@ const MovieApp = () => {
     return (
         <React.Fragment>
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/movie/:id" element={<SingleMovie />} />
-            </Routes>
+            <Suspense fallback={<div>loading</div>}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/movie/:id" element={<SingleMovie />} />
+                </Routes>
+            </Suspense>
 
         </React.Fragment>
     )

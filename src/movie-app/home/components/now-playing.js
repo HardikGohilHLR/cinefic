@@ -1,20 +1,20 @@
-// Home - Top Rated Movies
+// Home - Now Playing Movies
 import React from 'react';
 
 import useFetch from '../../../common/hooks/useFetch';
 import MovieCard from './movie-card';
 
-const TopRatedMovies = () => {
+const NowPlayingMovies = () => {
 
-    const { data, loading } = useFetch('/movie/top_rated', 'data');
+    const { data, loading } = useFetch('/movie/now_playing', 'data', 'region=IN');
 
-    console.log('Top Rated', data);
+    console.log('now_playing', data);
    
     return (
         <React.Fragment>
             <div>
-                <h2>Top Rated Movies</h2>
-
+                <h2>Now Playing Movies</h2>
+                
                 <div style={{display: 'flex', flexWrap: 'wrap'}}>
                     {
                         data?.length !== 0 || loading ?
@@ -32,11 +32,9 @@ const TopRatedMovies = () => {
                             </>
 
                         :
-
                         <div>
                             No data found
                         </div>
-
                     }
                 </div>
             </div>
@@ -44,4 +42,4 @@ const TopRatedMovies = () => {
     )
 }
 
-export default TopRatedMovies;
+export default NowPlayingMovies;
