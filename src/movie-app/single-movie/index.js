@@ -13,19 +13,21 @@ const SingleMovie = () => {
     const { data: movieDetails } = useFetch(`/movie/${id}`, 'data');
     const { data: movieCast } = useFetch(`/movie/${id}/credits`, 'data');
     const { data: movieVideos } = useFetch(`/movie/${id}/videos`, 'data');
+    const { data: movieState } = useFetch(`/movie/${id}/account_states`, 'data');
 
     console.log('single movie', movieDetails);
     console.log('single movie cast', movieCast);
     console.log('single movieVideos', movieVideos);
+    console.log('single movieState', movieState);
 
     return (
         <React.Fragment>
 
-            <div className="c_single-movie">
+            <div className="cf_single-movie">
 
-                <div className="c_container">
+                <div className="cf_container">
                     
-                    <div className="c_single-movie-wpr">
+                    <div className="cf_single-movie-wpr">
                         <GetMovieImage movie={movieDetails} />
                         <h4>{movieDetails?.title}</h4>
                         <h5>{movieDetails?.tagline}</h5>

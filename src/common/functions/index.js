@@ -15,9 +15,7 @@ export const GetMovieImage = ({movie}) => {
     }, [movie?.poster_path]);
 
     return (
-        <div style={{width: '200px'}} >
-            <img src={getImage} height="200"/>
-        </div>
+        <img src={getImage} alt={movie?.title} />
     )
 }
 

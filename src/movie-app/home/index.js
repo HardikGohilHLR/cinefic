@@ -1,7 +1,7 @@
 // Movie app - Home
-
 import React from 'react';
 
+// Components
 import UpcomingMovies from './components/upcoming';
 import TopRatedMovies from './components/top-rated';
 import PopularMovies from './components/popular';
@@ -12,22 +12,26 @@ const Home = () => {
 
     return (
         <React.Fragment>
-            
-            {/* Latest Movies */}
-            <LatestMovies />
+            <div className="cf_home">
+                <div className="cf_container">
 
-            {/* Upcoming Movies */}
-            <NowPlayingMovies />
+                    {/* Latest Movies */}
+                    {/* <LatestMovies /> */}
 
-            {/* Upcoming Movies */}
-            <UpcomingMovies />
+                    {/* Upcoming Movies */}
+                    <NowPlayingMovies />
 
-            {/* Top Rated Movies */}
-            <TopRatedMovies />
+                    {/* Upcoming Movies */}
+                    <UpcomingMovies />
 
-            {/* Popular Movies */}
-            <PopularMovies />  
+                    {/* Top Rated Movies */}
+                    <TopRatedMovies />
 
+                    {/* Popular Movies */}
+                    <PopularMovies />  
+    `
+                </div>
+            </div>
         </React.Fragment>
     )
 }

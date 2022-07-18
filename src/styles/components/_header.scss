@@ -16,9 +16,10 @@ header {
     position: sticky;
     top: 0;
     background-color: $white;
+    z-index: 5;
 }
 
-.fb_header {
+.cf_header {
     @include flexCenterBetween;
     padding: 15px 0;
 

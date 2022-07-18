@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const useFetch = (url, key, queryParams) => {
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
