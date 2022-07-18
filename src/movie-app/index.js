@@ -14,7 +14,7 @@ const MovieApp = () => {
         <React.Fragment>
 
             <Layout>
-                <Suspense fallback={<div>loading</div>}>
+                <Suspense fallback={<div className="fb_preloader"><img src="/images/preloader.svg" alt="Loading..." /></div>}>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/movie/:id" element={<SingleMovie />} />

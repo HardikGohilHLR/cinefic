@@ -31,10 +31,10 @@ body, * {
     src: url('../fonts/Gilroy-Bold.woff') format('woff');
 }
 
-h1 { @include fontStyle(700, 32, 44, $black); letter-spacing: 0.8px; }
-h2 { @include fontStyle(700, 30, 42, $black); letter-spacing: 0.8px; }
-h3 { @include fontStyle(700, 24, 30, $black); letter-spacing: 0.8px; }
-h4 { @include fontStyle(600, 20, 24, $black); letter-spacing: 0.8px; }
+h1 { @include fontStyle(700, 32, 44, $black); letter-spacing: 0.4px; }
+h2 { @include fontStyle(700, 30, 42, $black); letter-spacing: 0.4px; }
+h3 { @include fontStyle(700, 24, 30, $black); letter-spacing: 0.4px; }
+h4 { @include fontStyle(600, 20, 24, $black); letter-spacing: 0.4px; }
 h5 { @include fontStyle(600, 16, 20, $black); }
 
 strong { font-weight: 700 !important; }
