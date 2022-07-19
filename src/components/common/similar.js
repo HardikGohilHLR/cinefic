@@ -2,7 +2,7 @@
 import React from 'react';
 
 import useFetch from '../../common/hooks/useFetch';
-import MovieCard from '../movie-card';
+import MovieCard from './movie-card';
 
 const SimilarMovies = ({movieId, type = 'movie'}) => {
         

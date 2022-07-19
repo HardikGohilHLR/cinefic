@@ -2,7 +2,7 @@
 import React from 'react';
 
 import useFetch from '../../common/hooks/useFetch';
-import GetImage from '../../components/get-image';
+import GetImage from '../utilities/get-image';
 
 const Cast = ({movieId, type = 'movie'}) => {
 

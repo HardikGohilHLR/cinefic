@@ -3,8 +3,8 @@ import React, { useMemo, useState } from 'react';
 import useFetch from '../../../common/hooks/useFetch';
 
 // Components
-import MovieCard from '../../../components/movie-card';
-import Pagination from '../../../components/pagination';
+import MovieCard from '../../../components/common/movie-card';
+import Pagination from '../../../components/utilities/pagination';
 
 const AllMovieSList = ({listType}) => {
 

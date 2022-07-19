@@ -8,7 +8,7 @@ import useFetch from '../../../../common/hooks/useFetch';
 import RightArrowIcon from '../../../../icons/RightArrow';
 
 // Components
-import MovieCard from '../../../../components/movie-card';
+import MovieCard from '../../../../components/common/movie-card';
 
 const TvShowsList = ({listType}) => {
 

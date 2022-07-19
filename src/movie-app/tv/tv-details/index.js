@@ -10,7 +10,7 @@ import { convertMoney } from '../../../common/functions';
 import StarIcon from '../../../icons/Star';
 
 // Components
-import GetImage from '../../../components/get-image';
+import GetImage from '../../../components/utilities/get-image';
 
 import PlayList from '../../../components/common/playlist';
 import Cast from '../../../components/common/cast';

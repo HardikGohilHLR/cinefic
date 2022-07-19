@@ -10,7 +10,7 @@ import { formatDate, convertMinsToHrsMins, convertMoney } from '../../../common/
 import StarIcon from '../../../icons/Star';
 
 // Components
-import GetImage from '../../../components/get-image';
+import GetImage from '../../../components/utilities/get-image';
 
 import Cast from '../../../components/common/cast';
 import PlayList from '../../../components/common/playlist';

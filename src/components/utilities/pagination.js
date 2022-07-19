@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 import ReactPaginate from 'react-paginate'; /* React Paginate */
-import RightArrowIcon from '../icons/RightArrow';
+import RightArrowIcon from '../../icons/RightArrow';
 
 const Pagination = (props) => {
 

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import useDebouncedEffect from 'use-debounced-effect';
 
 // Icons
-import SearchIcon from '../icons/Search';
-import CloseIcon from '../icons/Close';
+import SearchIcon from '../../icons/Search';
+import CloseIcon from '../../icons/Close';
 
 const Header = () => {
 

@@ -2,10 +2,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import GetImage from './get-image';
-import { formatDate } from '../common/functions';
+import GetImage from '../utilities/get-image';
+import { formatDate } from '../../common/functions';
 
-import Skeleton from './skeleton';
+import Skeleton from '../utilities/skeleton';
 
 const MovieCard = ({movie, loading, showType = 'movie', type}) => {
 
