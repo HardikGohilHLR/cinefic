@@ -1,4 +1,4 @@
-// TV Shows - Today Airing
+// TV Shows - List
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,13 +10,13 @@ import RightArrowIcon from '../../../icons/RightArrow';
 // Components
 import MovieCard from '../../../components/movie-card';
 
-const TvShowsList = ({tvShowType}) => {
+const TvShowsList = ({listType}) => {
 
-    const { data, loading } = useFetch(`/tv/${tvShowType}`, 'data');
+    const { data, loading } = useFetch(`/tv/${listType}`, 'data');
    
     const getTitle = useCallback((joinBy) => {
-        return tvShowType?.split('_').join(joinBy);
-    }, [tvShowType]);
+        return listType?.split('_').join(joinBy);
+    }, [listType]);
 
     return (
         <React.Fragment>
@@ -39,7 +39,7 @@ const TvShowsList = ({tvShowType}) => {
 
                                 data?.results?.slice(0, 5)?.map(movie => {
                                     return (
-                                        <MovieCard movie={movie} key={movie?.id} loading={loading} showType="tv" type={tvShowType} />
+                                        <MovieCard movie={movie} key={movie?.id} loading={loading} showType="tv" type={listType} />
                                     )
                                 })
                         }

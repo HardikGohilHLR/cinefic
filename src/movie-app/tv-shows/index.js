@@ -11,16 +11,16 @@ const TVShows = () => {
             <div className="cf_home cf_tv">
 
                 {/* Today Airing Shows */}
-                <TvShowsList tvShowType="airing_today" />
+                <TvShowsList listType="airing_today" />
 
                 {/* On Air Shows */}
-                <TvShowsList tvShowType="on_the_air" />
+                <TvShowsList listType="on_the_air" />
 
                 {/* Top Rated Shows */}
-                <TvShowsList tvShowType="top_rated" />
+                <TvShowsList listType="top_rated" />
 
                 {/* Popular Shows */}
-                <TvShowsList tvShowType="popular" />
+                <TvShowsList listType="popular" />
 
             </div>
         </React.Fragment>

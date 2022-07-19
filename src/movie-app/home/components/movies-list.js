@@ -1,5 +1,5 @@
-// Home - Now Playing Movies
-import React from 'react';
+// Movies - Movies List
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import useFetch from '../../../common/hooks/useFetch';
@@ -10,10 +10,14 @@ import RightArrowIcon from '../../../icons/RightArrow';
 // Components
 import MovieCard from '../../../components/movie-card';
 
-const NowPlayingMovies = () => {
+const MoviesList = ({listType}) => {
 
-    const { data, loading } = useFetch('/movie/now_playing', 'data');
+    const { data, loading } = useFetch(`/movie/${listType}`, 'data');
    
+    const getTitle = useCallback((joinBy) => {
+        return listType?.split('_').join(joinBy);
+    }, [listType]);
+
     return (
         <React.Fragment>
             <div className="cf_movies-sec">
@@ -21,9 +25,9 @@ const NowPlayingMovies = () => {
                 <div className="cf_container">
 
                     <div className="cf_movies-sec__header">
-                        <h3>Now Playing Movies</h3>
+                        <h3 className="cf_text-c">{getTitle(' ')} Movies</h3>
 
-                        <Link to="/movies/now-playing" className="cf_movies-sec__header-view">
+                        <Link to={`/tv-shows/${getTitle('-')}`} className="cf_movies-sec__header-view">
                             View All
                             <RightArrowIcon />
                         </Link>
@@ -35,7 +39,7 @@ const NowPlayingMovies = () => {
 
                                 data?.results?.slice(0, 5)?.map(movie => {
                                     return (
-                                        <MovieCard movie={movie} key={movie?.id} loading={loading} type="now_playing" />
+                                        <MovieCard movie={movie} key={movie?.id} loading={loading} showType="movie" type={listType} />
                                     )
                                 })
                         }
@@ -47,4 +51,4 @@ const NowPlayingMovies = () => {
     )
 }
 
-export default NowPlayingMovies;
+export default MoviesList;

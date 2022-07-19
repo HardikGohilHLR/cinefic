@@ -2,11 +2,8 @@
 import React from 'react';
 
 // Components
-import UpcomingMovies from './components/upcoming';
-import TopRatedMovies from './components/top-rated';
-import PopularMovies from './components/popular';
 import LatestMovies from './components/latest';
-import NowPlayingMovies from './components/now-playing';
+import MoviesList from './components/movies-list';
 
 const Home = () => {
 
@@ -17,17 +14,17 @@ const Home = () => {
                 {/* Latest Movies */}
                 {/* <LatestMovies /> */}
 
-                {/* Upcoming Movies */}
-                <NowPlayingMovies />
+                {/* Playing Movies */}
+                <MoviesList listType="now_playing" />
 
                 {/* Upcoming Movies */}
-                <UpcomingMovies />
+                <MoviesList listType="upcoming" />
 
                 {/* Top Rated Movies */}
-                <TopRatedMovies />
+                <MoviesList listType="top_rated" />
 
                 {/* Popular Movies */}
-                <PopularMovies />  
+                <MoviesList listType="popular" />                
 
             </div>
         </React.Fragment>
