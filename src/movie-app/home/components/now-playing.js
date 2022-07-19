@@ -35,7 +35,7 @@ const NowPlayingMovies = () => {
 
                                 data?.results?.slice(0, 5)?.map(movie => {
                                     return (
-                                        <MovieCard movie={movie} key={movie?.id} loading={loading} />
+                                        <MovieCard movie={movie} key={movie?.id} loading={loading} type="now_playing" />
                                     )
                                 })
                         }

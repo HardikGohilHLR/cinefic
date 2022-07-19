@@ -38,7 +38,7 @@ const NowPlayingMovies = ({movies}) => {
 
                                     data?.results?.map(movie => {
                                         return (
-                                            <MovieCard movie={movie} key={movie?.id} loading={loading} />
+                                            <MovieCard movie={movie} key={movie?.id} loading={loading} type={movies}  />
                                         )
                                     })
                             }
