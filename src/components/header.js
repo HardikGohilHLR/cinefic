@@ -49,7 +49,7 @@ const Header = () => {
                                     <Link to={'/'}> Movie </Link>
                                 </li>
                                 <li>
-                                    <Link to={'/'}> Series </Link>
+                                    <Link to={'/tv-shows'}> TV Shows </Link>
                                 </li>
                             </ul>
                         </nav>

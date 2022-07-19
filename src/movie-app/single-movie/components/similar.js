@@ -4,9 +4,9 @@ import React from 'react';
 import useFetch from '../../../common/hooks/useFetch';
 import MovieCard from '../../../components/movie-card';
 
-const SimilarMovies = ({movieId}) => {
-    
-    const { data, loading } = useFetch(`/movie/${movieId}/similar`, 'data');
+const SimilarMovies = ({movieId, type = 'movie'}) => {
+        
+    const { data, loading } = useFetch(`/${type}/${movieId}/similar`, 'data');
    
     return (
         <React.Fragment>
@@ -14,7 +14,7 @@ const SimilarMovies = ({movieId}) => {
                 <div className="cf_container">
 
                     <div className="cf_movies-sec__header">
-                        <h3>Similar Movies</h3>
+                        <h3>Similar {type === 'movie' ? 'Movies' : 'Shows'}</h3>
                     </div>
                     
                     <div className="cf_movies-sec__group">

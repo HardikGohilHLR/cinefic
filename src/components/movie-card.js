@@ -7,12 +7,12 @@ import { formatDate } from '../common/functions';
 
 import Skeleton from './skeleton';
 
-const MovieCard = ({movie, loading, type}) => {
+const MovieCard = ({movie, loading, showType = 'movie', type}) => {
 
     const navigate = useNavigate();
 
     const getMovieDetails = () => {
-        navigate(`/movie/${movie?.id}`);
+        navigate(`/${showType}/${movie?.id}`);
     }
 
     return (

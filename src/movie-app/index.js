@@ -7,8 +7,13 @@ import Layout from '../components/layout';
 
 // Pages
 import Home from './home';
+
 const SingleMovie = lazy(() => import('./single-movie'));
 const Movies = lazy(() => import('./movies'));
+
+const TVShows = lazy(() => import('./tv-shows'));
+const TVDetails = lazy(() => import('./tv-details'));
+const TVShowsAll = lazy(() => import('./tv-shows-all'));
 
 const MovieApp = () => {
     return (
@@ -17,13 +22,18 @@ const MovieApp = () => {
             <Layout>
                 <Suspense fallback={<div className="fb_preloader"><img src="/images/preloader.svg" alt="Loading..." /></div>}>
                     <Routes>
+                        {/* Movies */}
                         <Route exact path="/" element={<Home />} />
                         <Route exact path="/movie/:id" element={<SingleMovie />} />
                         <Route path="/movies/*" element={<Movies />} />
+
+                        {/* TV Shows */}
+                        <Route exact path="/tv-shows" element={<TVShows />} />
+                        <Route exact path="/tv/:id" element={<TVDetails />} />
+                        <Route path="/tv-shows/*" element={<TVShowsAll />} />
                     </Routes>
                 </Suspense>
             </Layout>
-
 
         </React.Fragment>
     )

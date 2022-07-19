@@ -12,7 +12,7 @@ const Home = () => {
 
     return (
         <React.Fragment>
-            <div className="cf_home">
+            <div className="cf_home cf_movies">
 
                 {/* Latest Movies */}
                 {/* <LatestMovies /> */}
@@ -28,7 +28,7 @@ const Home = () => {
 
                 {/* Popular Movies */}
                 <PopularMovies />  
-    `
+
             </div>
         </React.Fragment>
     )

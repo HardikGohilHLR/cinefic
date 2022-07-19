@@ -1,4 +1,4 @@
-// Movies - All Movies
+
 import React, { useMemo, useState } from 'react';
 import useFetch from '../../common/hooks/useFetch';
 
@@ -6,11 +6,11 @@ import useFetch from '../../common/hooks/useFetch';
 import MovieCard from '../../components/movie-card';
 import Pagination from '../../components/pagination';
 
-const NowPlayingMovies = ({movies}) => {
+const TVShowsList = ({movies}) => {
 
     const [page, setPage] = useState(1);
 
-    const { data, loading } = useFetch(`/movie/${movies}`, 'data', `&page=${page}`);
+    const { data, loading } = useFetch(`/tv/${movies}`, 'data', `&page=${page}`);
 
     const getTitle = useMemo(() => {
         return movies?.split('_').join(' ');
@@ -29,7 +29,7 @@ const NowPlayingMovies = ({movies}) => {
                     <div className="cf_container">
 
                         <div className="cf_movies-sec__header">
-                            <h3 className="cf_text-c">{getTitle} Movies</h3>
+                            <h3 className="cf_text-c">{getTitle} Shows</h3>
                         </div>
                         
                         <div className="cf_movies-sec__group">
@@ -38,7 +38,7 @@ const NowPlayingMovies = ({movies}) => {
 
                                     data?.results?.map(movie => {
                                         return (
-                                            <MovieCard movie={movie} key={movie?.id} loading={loading} type={movies}  />
+                                            <MovieCard movie={movie} key={movie?.id} loading={loading} showType="tv" type={movies}  />
                                         )
                                     })
                             }
@@ -53,4 +53,4 @@ const NowPlayingMovies = ({movies}) => {
     )
 }
 
-export default NowPlayingMovies;
+export default TVShowsList;

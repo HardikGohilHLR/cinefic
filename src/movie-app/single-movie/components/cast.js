@@ -4,9 +4,9 @@ import React from 'react';
 import useFetch from '../../../common/hooks/useFetch';
 import GetImage from '../../../components/get-image';
 
-const Cast = ({movieId}) => {
+const Cast = ({movieId, type = 'movie'}) => {
 
-    const { data: movieCast } = useFetch(`/movie/${movieId}/credits`, 'data');
+    const { data: movieCast } = useFetch(`/${type}/${movieId}/credits`, 'data');
 
     const viewAllCast = () => {
 
