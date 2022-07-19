@@ -6,15 +6,15 @@ import useFetch from '../../common/hooks/useFetch';
 import MovieCard from '../../components/movie-card';
 import Pagination from '../../components/pagination';
 
-const NowPlayingMovies = ({movies}) => {
+const AllMovieSList = ({listType}) => {
 
     const [page, setPage] = useState(1);
 
-    const { data, loading } = useFetch(`/movie/${movies}`, 'data', `&page=${page}`);
+    const { data, loading } = useFetch(`/movie/${listType}`, 'data', `&page=${page}`);
 
     const getTitle = useMemo(() => {
-        return movies?.split('_').join(' ');
-    }, [movies]);
+        return listType?.split('_').join(' ');
+    }, [listType]);
 
     const onPageChange = page => {
         setPage(page);
@@ -38,7 +38,7 @@ const NowPlayingMovies = ({movies}) => {
 
                                     data?.results?.map(movie => {
                                         return (
-                                            <MovieCard movie={movie} key={movie?.id} loading={loading} type={movies}  />
+                                            <MovieCard movie={movie} key={movie?.id} loading={loading} showType="movie" type={listType}  />
                                         )
                                     })
                             }
@@ -53,4 +53,4 @@ const NowPlayingMovies = ({movies}) => {
     )
 }
 
-export default NowPlayingMovies;
+export default AllMovieSList;

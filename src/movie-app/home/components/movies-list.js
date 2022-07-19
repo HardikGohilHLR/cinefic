@@ -27,7 +27,7 @@ const MoviesList = ({listType}) => {
                     <div className="cf_movies-sec__header">
                         <h3 className="cf_text-c">{getTitle(' ')} Movies</h3>
 
-                        <Link to={`/tv-shows/${getTitle('-')}`} className="cf_movies-sec__header-view">
+                        <Link to={`/movies/${getTitle('-')}`} className="cf_movies-sec__header-view">
                             View All
                             <RightArrowIcon />
                         </Link>
