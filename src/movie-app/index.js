@@ -8,12 +8,12 @@ import Layout from '../components/layout';
 // Pages
 import Home from './home';
 
-const SingleMovie = lazy(() => import('./single-movie'));
-const Movies = lazy(() => import('./movies'));
+const SingleMovie = lazy(() => import('./movie/movie-details'));
+const Movies = lazy(() => import('./movie/movies'));
 
-const TVShows = lazy(() => import('./tv-shows'));
-const TVDetails = lazy(() => import('./tv-details'));
-const TVShowsAll = lazy(() => import('./tv-shows-all'));
+const TVShows = lazy(() => import('./tv/tv-shows'));
+const TVDetails = lazy(() => import('./tv/tv-details'));
+const TVShowsAll = lazy(() => import('./tv/tv-shows-all'));
 
 const MovieApp = () => {
     return (

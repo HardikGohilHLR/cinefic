@@ -1,8 +1,8 @@
 // Movie Details - Similar Movies
 import React from 'react';
 
-import useFetch from '../../../common/hooks/useFetch';
-import MovieCard from '../../../components/movie-card';
+import useFetch from '../../common/hooks/useFetch';
+import MovieCard from '../movie-card';
 
 const SimilarMovies = ({movieId, type = 'movie'}) => {
         

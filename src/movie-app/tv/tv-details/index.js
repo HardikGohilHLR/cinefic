@@ -1,32 +1,35 @@
-// Movie app - Movie Details
+// Movie app - TV Shows Details
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import useFetch from '../../common/hooks/useFetch';
-import { formatDate, convertMinsToHrsMins, convertMoney } from '../../common/functions';
+import useFetch from '../../../common/hooks/useFetch';
+import { convertMoney } from '../../../common/functions';
 
 // Icons
-import StarIcon from '../../icons/Star';
+import StarIcon from '../../../icons/Star';
 
 // Components
-import GetImage from '../../components/get-image';
-import SimilarMovies from './components/similar';
-import PlayList from './components/playlist';
-import Cast from './components/cast';
+import GetImage from '../../../components/get-image';
 
-const SingleMovie = () => {
+import PlayList from '../../../components/common/playlist';
+import Cast from '../../../components/common/cast';
+import SimilarMovies from '../../../components/common/similar';
+
+const TVDetails = () => {
 
     const { id } = useParams();
 
-    const { data: movieDetails } = useFetch(`/movie/${id}`, 'data');
-    const { data: movieVideos } = useFetch(`/movie/${id}/videos`, 'data');
+    const { data: movieDetails } = useFetch(`/tv/${id}`, 'data');
+    const { data: movieVideos } = useFetch(`/tv/${id}/videos`, 'data');
 
     const [movieTrailer, setMovieTrailer] = useState({});
 
     useEffect(() => {
         setMovieTrailer(movieVideos?.results?.find(_ => _?.name === 'Official Trailer' || _?.type === 'Trailer'))      
     }, [movieVideos]);
+
+    console.log('movieDetails', movieDetails);
     
     return (
         <React.Fragment>
@@ -38,7 +41,7 @@ const SingleMovie = () => {
 
                         <div className="d_flex d_align-center d_content-between">
                             <div className="cf_single-movie__info-title">
-                                <h1>{movieDetails?.title}</h1>                                
+                                <h1>{movieDetails?.name}</h1>                                
                                 {
                                     movieDetails?.tagline && <h5>{movieDetails?.tagline}</h5>
                                 }
@@ -63,8 +66,10 @@ const SingleMovie = () => {
                     
                     <div className="cf_single-movie__desc">
                         <div className="cf_single-movie__time">
-                            <p>{convertMinsToHrsMins(movieDetails?.runtime)}</p>
-                            <p>{formatDate(movieDetails?.release_date, 'Do, MMMM YYYY')}</p>
+
+                            <p>Seasons - {movieDetails?.number_of_seasons}</p>
+                            <p>Total Episodes - {movieDetails?.number_of_episodes}</p>
+
                         </div>
 
                         <div className="cf_single-movie__votes">
@@ -93,7 +98,7 @@ const SingleMovie = () => {
                     }
 
                     {/* Cast */}
-                    <Cast movieId={movieDetails?.id} />
+                    <Cast movieId={movieDetails?.id} type="tv" />
 
                     {/* Production */}
                     {
@@ -118,26 +123,22 @@ const SingleMovie = () => {
                                 }
                             </ul>
                         </div>
-                    }                     
-                    
-                    {/* <p>Budget: {convertMoney(movieDetails?.budget || 0) || '-'}</p>
-                    
-                    <p>Revenue: {convertMoney(movieDetails?.revenue || 0) || '-'}</p> */}
+                    }
 
                     {/* <a href={`https://www.imdb.com/title/${movieDetails?.imdb_id}`} target="_blank" rel="noopener noreferrer">
                         View on IMDB
                     </a> */}
 
                     {/* Videos */}
-                    <PlayList movieVideos={movieVideos} />
+                    <PlayList movieVideos={movieVideos} type="tv" />
                 </div>
             </div>
                         
-            {/* Similar Movies */}
-            <SimilarMovies movieId={movieDetails?.id} />
+            {/* Similar Shows */}
+            <SimilarMovies movieId={movieDetails?.id} type="tv" />
             
         </React.Fragment>
     )
 }
 
-export default SingleMovie;
+export default TVDetails;

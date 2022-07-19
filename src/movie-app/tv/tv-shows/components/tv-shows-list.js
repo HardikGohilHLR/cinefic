@@ -2,13 +2,13 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
-import useFetch from '../../../common/hooks/useFetch';
+import useFetch from '../../../../common/hooks/useFetch';
 
 // Icons
-import RightArrowIcon from '../../../icons/RightArrow';
+import RightArrowIcon from '../../../../icons/RightArrow';
 
 // Components
-import MovieCard from '../../../components/movie-card';
+import MovieCard from '../../../../components/movie-card';
 
 const TvShowsList = ({listType}) => {
 

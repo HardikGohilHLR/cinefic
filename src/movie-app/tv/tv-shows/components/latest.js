@@ -2,8 +2,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import useFetch from '../../../common/hooks/useFetch';
-import GetImage from '../../../components/get-image';
+import useFetch from '../../../../common/hooks/useFetch';
+import GetImage from '../../../../components/get-image';
 
 const LatestMovies = () => {
 

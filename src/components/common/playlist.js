@@ -1,11 +1,11 @@
 // Movie Details - Playlist
 import React, { useRef } from 'react';
 
-import { formatDate } from '../../../common/functions';
+import { formatDate } from '../../common/functions';
 
 import Slider from "react-slick";
 
-import RightArrow from "../../../icons/RightArrow";
+import RightArrow from "../../icons/RightArrow";
 
 const PlayList = ({movieVideos}) => {
 
