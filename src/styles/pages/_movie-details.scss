@@ -222,7 +222,7 @@
                 overflow: auto;
                 overflow-x: clip;
             }
-            &-slide { padding: 0 15px; }
+            &-slide { padding: 0 15px; max-width: 25%; }
             &-arrow { display: none !important; }
         }
 

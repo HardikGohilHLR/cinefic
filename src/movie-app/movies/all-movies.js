@@ -1,17 +1,24 @@
 // Movies - All Movies
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import useFetch from '../../common/hooks/useFetch';
 
 // Components
 import MovieCard from '../../components/movie-card';
+import Pagination from '../../components/pagination';
 
 const NowPlayingMovies = ({movies}) => {
 
-    const { data, loading } = useFetch(`/movie/${movies}`, 'data');
+    const [page, setPage] = useState(1);
+
+    const { data, loading } = useFetch(`/movie/${movies}`, 'data', `&page=${page}`);
 
     const getTitle = useMemo(() => {
         return movies?.split('_').join(' ');
     }, [movies]);
+
+    const onPageChange = page => {
+        setPage(page);
+    }
 
     return (
         <React.Fragment>
@@ -36,6 +43,8 @@ const NowPlayingMovies = ({movies}) => {
                                     })
                             }
                         </div>
+
+                        <Pagination onPageChange={onPageChange} page={data?.page} pageCount={data?.total_results} />
                         
                     </div>
                 </div>

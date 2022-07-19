@@ -34,7 +34,7 @@ const useFetch = (url, key, queryParams) => {
         return () => {
             source.cancel();
         }
-    }, [url]);
+    }, [url, queryParams]);
 
     return { data, loading, error };
 }

@@ -16,7 +16,7 @@ const PlayList = ({movieVideos}) => {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: movieVideos?.results?.length > 4 ? 4 : movieVideos?.results?.length,
         slidesToScroll: 1
     };
 
@@ -60,15 +60,18 @@ const PlayList = ({movieVideos}) => {
                             })
                         }
                     </Slider>
-                    
-                    <div className="cf_single-movie__videos-btns">
-                        <button className="cf_single-movie__videos-btn left" onClick={() => sliderRef?.current?.slickPrev()}>
-                            <RightArrow fill="#FFFFFF" />
-                        </button>
-                        <button className="cf_single-movie__videos-btn right" onClick={() => sliderRef?.current?.slickNext()}>
-                            <RightArrow fill="#FFFFFF" />
-                        </button>
-                    </div>
+
+                    {
+                        movieVideos?.results?.length > 4 &&
+                        <div className="cf_single-movie__videos-btns">
+                            <button className="cf_single-movie__videos-btn left" onClick={() => sliderRef?.current?.slickPrev()}>
+                                <RightArrow fill="#FFFFFF" />
+                            </button>
+                            <button className="cf_single-movie__videos-btn right" onClick={() => sliderRef?.current?.slickNext()}>
+                                <RightArrow fill="#FFFFFF" />
+                            </button>
+                        </div>
+                    }
 
                 </div>
             }
