@@ -11,7 +11,7 @@ const MovieCard = ({movie, loading}) => {
     const navigate = useNavigate();
 
     const getMovieDetails = () => {
-        navigate(`movie/${movie?.id}`);
+        navigate(`/movie/${movie?.id}`);
     }
 
     return (

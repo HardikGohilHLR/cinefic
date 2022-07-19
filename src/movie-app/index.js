@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 // Pages
 import Home from './home';
 const SingleMovie = lazy(() => import('./single-movie'));
+const Movies = lazy(() => import('./movies'));
 
 const MovieApp = () => {
     return (
@@ -16,8 +17,9 @@ const MovieApp = () => {
             <Layout>
                 <Suspense fallback={<div className="fb_preloader"><img src="/images/preloader.svg" alt="Loading..." /></div>}>
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/movie/:id" element={<SingleMovie />} />
+                        <Route exact path="/" element={<Home />} />
+                        <Route exact path="/movie/:id" element={<SingleMovie />} />
+                        <Route path="/movies/*" element={<Movies />} />
                     </Routes>
                 </Suspense>
             </Layout>
