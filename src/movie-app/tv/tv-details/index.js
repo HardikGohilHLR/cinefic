@@ -15,6 +15,7 @@ import GetImage from '../../../components/utilities/get-image';
 import PlayList from '../../../components/common/playlist';
 import Cast from '../../../components/common/cast';
 import SimilarMovies from '../../../components/common/similar';
+import Seasons from '../../../components/common/season';
 
 const TVDetails = () => {
 
@@ -23,13 +24,13 @@ const TVDetails = () => {
     const { data: movieDetails } = useFetch(`/tv/${id}`, 'data');
     const { data: movieVideos } = useFetch(`/tv/${id}/videos`, 'data');
 
+    console.log('movieDetails', movieDetails?.seasons);
+
     const [movieTrailer, setMovieTrailer] = useState({});
 
     useEffect(() => {
         setMovieTrailer(movieVideos?.results?.find(_ => _?.name === 'Official Trailer' || _?.type === 'Trailer'))      
     }, [movieVideos]);
-
-    console.log('movieDetails', movieDetails);
     
     return (
         <React.Fragment>
@@ -59,16 +60,30 @@ const TVDetails = () => {
 
                         <p>{movieDetails?.overview}</p>
 
+                        {/* Genre */}
+                        {
+                            movieDetails?.genres?.length !== 0 &&
+                            <ul className="cf_single-movie__genres">
+                                {
+                                    movieDetails?.genres?.map(genre => {
+                                        return (
+                                            <li key={genre?.id}>{genre?.name}</li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        }
                     </div>
                 </div>
 
                 <div className="cf_container"> 
                     
                     <div className="cf_single-movie__desc">
+                        
                         <div className="cf_single-movie__time">
 
-                            <p>Seasons - {movieDetails?.number_of_seasons}</p>
-                            <p>Total Episodes - {movieDetails?.number_of_episodes}</p>
+                            <p>{movieDetails?.number_of_seasons} Season{movieDetails?.number_of_seasons > 1 ? "s" : ""}</p>
+                            <p>{movieDetails?.number_of_episodes} Episodes ({movieDetails?.episode_run_time?.[0] } Min/Episode)</p>
 
                         </div>
 
@@ -83,19 +98,8 @@ const TVDetails = () => {
                         </div>
                     </div>
 
-                    {/* Genre */}
-                    {
-                        movieDetails?.genres?.length !== 0 &&
-                        <ul className="cf_single-movie__genres">
-                            {
-                                movieDetails?.genres?.map(genre => {
-                                    return (
-                                        <li key={genre?.id}>{genre?.name}</li>
-                                    )
-                                })
-                            }
-                        </ul>
-                    }
+                    {/* Seasons */}
+                    <Seasons movieDetails={movieDetails} />
 
                     {/* Cast */}
                     <Cast movieId={movieDetails?.id} type="tv" />
@@ -124,10 +128,6 @@ const TVDetails = () => {
                             </ul>
                         </div>
                     }
-
-                    {/* <a href={`https://www.imdb.com/title/${movieDetails?.imdb_id}`} target="_blank" rel="noopener noreferrer">
-                        View on IMDB
-                    </a> */}
 
                     {/* Videos */}
                     <PlayList movieVideos={movieVideos} type="tv" />

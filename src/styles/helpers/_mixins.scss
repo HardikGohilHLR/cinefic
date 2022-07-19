@@ -30,7 +30,7 @@
     .m-#{$i} { $margin: $i * 1px; margin: $margin; }
     .mt-#{$i} { $margin: $i * 1px; margin-top: $margin; }
     .mr-#{$i} { $margin: $i * 1px; margin-right: $margin; }
-    .mb-#{$i} { $margin: $i * 1px; margin-bottom: $margin; }
+    .mb-#{$i} { $margin: $i * 1px; margin-bottom: $margin !important; }
     .ml-#{$i} { $margin: $i * 1px; margin-left: $margin; }
     .p-#{$i} { $padding: $i * 1px; padding: $padding; }
     .pt-#{$i} { $padding: $i * 1px; padding-top: $padding; }

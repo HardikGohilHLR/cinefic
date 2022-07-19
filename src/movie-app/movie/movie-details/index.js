@@ -57,6 +57,19 @@ const SingleMovie = () => {
 
                         <p>{movieDetails?.overview}</p>
 
+                        {/* Genre */}
+                        {
+                            movieDetails?.genres?.length !== 0 &&
+                            <ul className="cf_single-movie__genres">
+                                {
+                                    movieDetails?.genres?.map(genre => {
+                                        return (
+                                            <li key={genre?.id}>{genre?.name}</li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        }
                     </div>
                 </div>
 
@@ -78,20 +91,6 @@ const SingleMovie = () => {
                             </p>
                         </div>
                     </div>
-
-                    {/* Genre */}
-                    {
-                        movieDetails?.genres?.length !== 0 &&
-                        <ul className="cf_single-movie__genres">
-                            {
-                                movieDetails?.genres?.map(genre => {
-                                    return (
-                                        <li key={genre?.id}>{genre?.name}</li>
-                                    )
-                                })
-                            }
-                        </ul>
-                    }
 
                     {/* Cast */}
                     <Cast movieId={movieDetails?.id} />

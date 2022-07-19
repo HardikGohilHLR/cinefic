@@ -80,7 +80,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 20px 0 0;
+        padding: 0 0 20px;
     }
 
     &__time {
@@ -131,7 +131,7 @@
     &__genres {
         display: flex;
         align-items: center;
-        padding: 20px 0 30px;
+        padding: 20px 0 0;
 
         li {
             background-color: #34495e;

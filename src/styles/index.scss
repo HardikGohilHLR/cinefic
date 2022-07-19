@@ -8,8 +8,11 @@
 @import './components/header'; /* Header */
 @import './components/footer'; /* Footer */
 @import './components/buttons'; /* Buttons */
-@import './components/movie-card'; /* Movie Card */
 @import './components/pagination'; /* Pagination */
+
+// Page Components
+@import './components/movie-card'; /* Movie Card */
+@import './pages/details/seasons'; /* Seasons Info */
 
 // Pages
 @import './pages/home'; /* Home */
