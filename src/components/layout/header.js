@@ -46,7 +46,7 @@ const Header = () => {
 
                             <ul className="d_flex">
                                 <li>
-                                    <Link to={'/'}> Movie </Link>
+                                    <Link to={'/movies'}> Movies </Link>
                                 </li>
                                 <li>
                                     <Link to={'/tv-shows'}> TV Shows </Link>

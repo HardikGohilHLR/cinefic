@@ -24,6 +24,8 @@ const MovieApp = () => {
                     <Routes>
                         {/* Movies */}
                         <Route exact path="/" element={<Home />} />
+
+                        <Route exact path="/movies" element={<Home />} />
                         <Route exact path="/movie/:id" element={<SingleMovie />} />
                         <Route path="/movies/*" element={<Movies />} />
 
