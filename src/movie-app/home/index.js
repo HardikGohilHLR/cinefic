@@ -3,6 +3,7 @@ import React from 'react';
 
 // Components
 import LatestMovies from './components/latest';
+
 import MoviesList from './components/movies-list';
 
 const Home = () => {
@@ -17,14 +18,14 @@ const Home = () => {
                 {/* Playing Movies */}
                 <MoviesList listType="now_playing" />
 
+                {/* Popular Movies */}
+                <MoviesList listType="popular" />
+
                 {/* Upcoming Movies */}
                 <MoviesList listType="upcoming" />
 
                 {/* Top Rated Movies */}
                 <MoviesList listType="top_rated" />
-
-                {/* Popular Movies */}
-                <MoviesList listType="popular" />                
 
             </div>
         </React.Fragment>
