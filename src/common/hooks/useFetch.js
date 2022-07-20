@@ -23,7 +23,7 @@ const useFetch = (url, key, queryParams) => {
         .then(res => {
             setLoading(false);
             if(res) {
-                console.log('res', res);
+                // console.log('res', res);
                 setData(res[key] || res);
             }
         })

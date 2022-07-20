@@ -10,8 +10,6 @@ const TVSeasonVideos = ({movieId, currentSeason}) => {
 
     const { data: tvShowSeasonVideos } = useFetch(`/tv/${movieId}/season/${currentSeason?.season_number}/videos`, 'data');
 
-    console.log('tvShowSeasonVideos', tvShowSeasonVideos);
-
     const watchVideo = video => {
         window.open(`https://www.youtube.com/watch?v=${video?.key}`, '_blank');
     }

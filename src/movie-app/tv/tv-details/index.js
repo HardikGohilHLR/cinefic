@@ -1,5 +1,4 @@
 // Movie app - TV Shows Details
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -21,8 +20,6 @@ const TVDetails = () => {
 
     const { data: movieDetails } = useFetch(`/tv/${id}`, 'data');
     const { data: movieVideos } = useFetch(`/tv/${id}/videos`, 'data');
-
-    console.log('movieDetails', movieDetails?.seasons);
 
     const [movieTrailer, setMovieTrailer] = useState({});
 

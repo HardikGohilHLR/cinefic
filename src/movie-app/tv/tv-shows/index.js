@@ -11,7 +11,7 @@ const TVShows = () => {
             <div className="cf_home cf_tv">
 
                 {/* Today Airing Shows */}
-                <TvShowsList listType="airing_today" />
+                {/* <TvShowsList listType="airing_today" /> */}
 
                 {/* On Air Shows */}
                 <TvShowsList listType="on_the_air" />
