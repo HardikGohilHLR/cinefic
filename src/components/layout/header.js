@@ -1,22 +1,22 @@
 // Header
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useDebouncedEffect from 'use-debounced-effect';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Icons
 import SearchIcon from '../../icons/Search';
 import CloseIcon from '../../icons/Close';
+import useFetch from '../../common/hooks/useFetch';
+import GetImage from '../utilities/get-image';
 
 const Header = () => {
 
     const inputRef = useRef(null);
+    const navigate = useNavigate();
 
     const [search, setSearch] = useState('');
     const [isSearchActive, SetIsSearchActive] = useState(false);
 
-    useDebouncedEffect(() => {
-        
-    }, 500, [search]);
+    const { data: searchResults } = useFetch(`/search/multi`, 'data', `query=${search}`);
         
     const handle = {
         search: e => {
@@ -24,9 +24,16 @@ const Header = () => {
         },
         getSearchBar: value => {
             setTimeout(() => {
-                value && inputRef?.current?.focus();            
-            }, 300);
+                value && inputRef?.current?.focus();
+            }, 400);
             SetIsSearchActive(value);
+            setSearch('');
+        },
+        viewMovie: movie => {
+            SetIsSearchActive(false);
+            const showType = movie?.media_type === 'movie' ? 'movie' : 'tv';
+            navigate(`/${showType}/${movie?.id}`);
+            setSearch('');
         }
     }
 
@@ -67,6 +74,30 @@ const Header = () => {
                                     <CloseIcon fill="#171717" />
                                 </span>
                             </div>
+                            
+                            {
+                                searchResults?.results?.length > 0 && isSearchActive &&
+                                <div className="cf_search-movie__results">
+                                    <ul>
+                                        {
+                                            searchResults?.results?.map(result => {
+                                                return (
+                                                    ['movie', 'tv']?.includes(result?.media_type) && 
+                                                    <li key={result.id} onClick={() => handle.viewMovie(result)}>
+                                                        <div className="cf_search-movie__image">
+                                                            <GetImage data={result} path="poster_path" />
+                                                        </div>
+                                                        <div className="cf_search-movie__info">
+                                                            <p>{result?.name || result?.title} </p>
+                                                            <span>({result?.media_type === 'movie' ? 'Movie' : 'TV'})</span>
+                                                        </div>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            }
                         </div>
 
                     </div>
