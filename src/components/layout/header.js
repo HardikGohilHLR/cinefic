@@ -47,7 +47,7 @@ const Header = () => {
                         <nav>
                             <div className="cf_logo">
                                 <Link to="/">
-                                    <h4>Cinefix</h4>
+                                    <h4>Cinefic</h4>
                                 </Link>
                             </div>
 
