@@ -5,7 +5,7 @@ import React, { useMemo } from 'react';
 const GetImage = React.memo(({data, path}) => {
 
     const getImageSrc = useMemo(() => {
-        return data?.[path] ? `https://image.tmdb.org/t/p/original${data?.[path]}` : `/images/${path}.jpg`;
+        return data?.[path] ? `${process.env.REACT_APP_TMDB_IMAGE}${data?.[path]}` : `/images/${path}.jpg`;
     }, [data]);
 
     return (

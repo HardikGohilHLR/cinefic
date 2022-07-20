@@ -1,5 +1,4 @@
 // App
-
 import React from 'react';
 
 import MovieApp from './movie-app';
