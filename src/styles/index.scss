@@ -10,10 +10,11 @@
 @import './components/buttons'; /* Buttons */
 @import './components/pagination'; /* Pagination */
 
-// Page Components
-@import './components/movie-card'; /* Movie Card */
-@import './pages/details/seasons'; /* Seasons Info */
-
 // Pages
 @import './pages/home'; /* Home */
 @import './pages/movie-details'; /* Movie Details */
+
+// Page Components
+@import './components/movie-card'; /* Movie Card */
+@import './pages/details/seasons'; /* Seasons Info */
+@import './pages/details/cast'; /* Cast */

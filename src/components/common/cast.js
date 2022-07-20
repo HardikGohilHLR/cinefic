@@ -1,15 +1,18 @@
 // Movie Details - Cast
-import React from 'react';
+import React, { useState } from 'react';
 
 import useFetch from '../../common/hooks/useFetch';
 import GetImage from '../utilities/get-image';
+import AllCast from './all-cast';
 
 const Cast = ({movieId, type = 'movie'}) => {
 
     const { data: movieCast } = useFetch(`/${type}/${movieId}/credits`, 'data');
 
-    const viewAllCast = () => {
+    const [isAllCastOpen, setIsAllCastOpen] = useState(false);
 
+    const viewAllCast = () => {
+        setIsAllCastOpen(true);
     }
 
     return (
@@ -37,15 +40,22 @@ const Cast = ({movieId, type = 'movie'}) => {
                             })
                         }
                         
-                        <li className="cf_single-movie__cast">
-                            <div className="cf_single-movie__cast-avatar view" onClick={viewAllCast}>
-                                <span>View All</span>
-                            </div>
-                        </li>
+                        {
+                            movieCast?.cast?.length > 5 &&
+                            <li className="cf_single-movie__cast">
+                                <div className="cf_single-movie__cast-avatar view" onClick={viewAllCast}>
+                                    <span>View All</span>
+                                </div>
+                            </li>
+                        }
                     </ul>
                 </div>
             }
-                    
+
+            {
+                isAllCastOpen && <AllCast cast={movieCast?.cast} close={() => setIsAllCastOpen(false)} />
+            }
+
         </React.Fragment>
     )
 }

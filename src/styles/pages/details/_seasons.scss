@@ -42,6 +42,9 @@
         &-content {
             padding: 20px 0 50px;
             border-bottom: 1px solid rgba($white_theme, 0.4);
+            .cf_single-movie__credits {
+                padding-bottom: 0;
+            }
         }
     }
 
@@ -81,9 +84,6 @@
                 gap: 25px;
             }
 
-            .cf_single-movie__credits {
-                padding-bottom: 0;
-            }
         }
 
         // Single Episode

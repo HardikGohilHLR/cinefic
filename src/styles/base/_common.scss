@@ -145,12 +145,13 @@ em { font-style: italic !important; }
 }
 
 // Modal
-.fb_modal {
+.cf_modal {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: 5;
     
     &-overlay {
         position: fixed;
@@ -162,8 +163,15 @@ em { font-style: italic !important; }
     }
 
     &-header {
-        margin-bottom: 20px;
         @include flexCenterBetween;
+        padding: 15px;
+        background-color: #34495e;
+        border-radius: 6px 6px 0 0;
+        color: $white;
+        
+        h4 {
+            color: $white;
+        }
     }
 
     &-close {
@@ -179,9 +187,16 @@ em { font-style: italic !important; }
         z-index: 5;
         background-color: $white;
         max-width: 500px;
-        padding: 20px;
         width: 100%;
         border-radius: 6px;
+        max-height: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-content {
+        padding: 15px;
+        overflow-y: auto;
     }
 
     &-footer {
