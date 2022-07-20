@@ -1,5 +1,5 @@
 // Tv Details - TV Episodes
-import React from 'react';
+import React, { useState } from 'react';
 
 import { convertMinsToHrsMins, formatDate } from '../../../../common/functions';
 import useFetch from '../../../../common/hooks/useFetch';
@@ -8,7 +8,12 @@ import StarIcon from '../../../../icons/Star';
 
 const TVEpisodes = ({movieId, currentSeason}) => {
 
+    const [episodeLimit, setEpisodeLimit] = useState(8);
     const { data: tvShowSeason } = useFetch(`/tv/${movieId}/season/${currentSeason?.season_number}`, 'data');
+
+    const loadMoreEpisodes = () => {
+        setEpisodeLimit(episodeLimit + 8);
+    }
 
     return (
         <React.Fragment>
@@ -19,7 +24,7 @@ const TVEpisodes = ({movieId, currentSeason}) => {
                 <div className="cf_tv-season__episode-list-wpr">
                     <ul>
                         {
-                            tvShowSeason?.episodes?.slice(0, 8)?.map(episode => {
+                            tvShowSeason?.episodes?.slice(0, episodeLimit)?.map(episode => {
                                 return (
                                     <li className="cf_tv-season__episode" key={episode?.id}>
 
@@ -51,6 +56,15 @@ const TVEpisodes = ({movieId, currentSeason}) => {
                             })
                         }
                     </ul>
+                    
+                    {
+                        tvShowSeason?.episodes?.length > 8 && episodeLimit <= tvShowSeason?.episodes?.length &&
+                        <div className="d_flex d_align-center d_content-center mt-30">
+                            <button className="cf_btn cf_btn-blue small" onClick={loadMoreEpisodes}>
+                                Load more
+                            </button>
+                        </div>
+                    }
                 </div>
             </div>
         </React.Fragment>

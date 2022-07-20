@@ -1,5 +1,5 @@
 // Buttons
-.fb_btn {
+.cf_btn {
     padding: 10px 36px;
     cursor: pointer;
     outline: none;
@@ -80,6 +80,11 @@
             background-color: $black;
             color: $white;
         }
+    }
+
+    &-blue {
+        background-color: #50abff;
+
     }
 }
 

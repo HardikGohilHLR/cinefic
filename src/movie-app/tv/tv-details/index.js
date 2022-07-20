@@ -96,9 +96,6 @@ const TVDetails = () => {
                     {/* Seasons */}
                     <Seasons movieDetails={movieDetails} />
 
-                    {/* Cast */}
-                    {/* <Cast movieId={movieDetails?.id} type="tv" /> */}
-
                     {/* Production */}
                     {
                         movieDetails?.production_companies?.length !== 0 &&
@@ -125,9 +122,6 @@ const TVDetails = () => {
                             </ul>
                         </div>
                     }
-
-                    {/* Videos */}
-                    {/* <PlayList movieVideos={movieVideos} type="tv" /> */}
                 </div>
             </div>
                         

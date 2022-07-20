@@ -24,7 +24,8 @@ const Seasons = ({movieDetails}) => {
     const { data: tvShowSeason } = useFetch(`/tv/${movieDetails?.id}/season/${currentSeason?.season_number}`, 'data');
 
     useEffect(() => {
-        setCurrentSeason(movieDetails?.seasons[movieDetails?.seasons?.length - 1]);
+        const allSeasons = movieDetails?.seasons?.filter(season => season?.episode_count > 0);
+        setCurrentSeason(allSeasons?.[allSeasons?.length - 1]);
     }, [movieDetails]);
     
     const changeSeason = season => {
@@ -67,7 +68,7 @@ const Seasons = ({movieDetails}) => {
                             {
                                 movieDetails?.seasons?.map(season => {
                                     return (
-                                        // season?.name?.includes('Season') &&
+                                        season?.episode_count > 0 &&
                                         <li 
                                             key={season?.id} 
                                             onClick={() => changeSeason(season)}
