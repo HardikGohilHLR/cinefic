@@ -77,7 +77,7 @@ const SingleMovie = () => {
                     
                     <div className="cf_single-movie__desc">
                         <div className="cf_single-movie__time">
-                            <p>{convertMinsToHrsMins(movieDetails?.runtime)}</p>
+                            {movieDetails?.runtime > 0 && <p>{convertMinsToHrsMins(movieDetails?.runtime)}</p>}
                             <p>{formatDate(movieDetails?.release_date, 'Do, MMMM YYYY')}</p>
                         </div>
 
