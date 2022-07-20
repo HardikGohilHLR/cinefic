@@ -216,6 +216,12 @@
     // Video
     &__videos {
 
+        &.seasons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
         .slick {
             &-list { 
                 margin: 0 -15px; 

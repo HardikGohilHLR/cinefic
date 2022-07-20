@@ -12,8 +12,6 @@ import StarIcon from '../../../icons/Star';
 // Components
 import GetImage from '../../../components/utilities/get-image';
 
-import PlayList from '../../../components/common/playlist';
-import Cast from '../../../components/common/cast';
 import SimilarMovies from '../../../components/common/similar';
 import Seasons from '../../../components/common/season';
 
@@ -102,13 +100,15 @@ const TVDetails = () => {
                     <Seasons movieDetails={movieDetails} />
 
                     {/* Cast */}
-                    <Cast movieId={movieDetails?.id} type="tv" />
+                    {/* <Cast movieId={movieDetails?.id} type="tv" /> */}
 
                     {/* Production */}
                     {
                         movieDetails?.production_companies?.length !== 0 &&
                         <div className="cf_single-movie__credits">
+
                             <h4 className="cf_single-movie__title">Production</h4>
+
                             <ul>
                                 {
                                     movieDetails?.production_companies?.slice(0, 5).map(prod => {
@@ -130,7 +130,7 @@ const TVDetails = () => {
                     }
 
                     {/* Videos */}
-                    <PlayList movieVideos={movieVideos} type="tv" />
+                    {/* <PlayList movieVideos={movieVideos} type="tv" /> */}
                 </div>
             </div>
                         

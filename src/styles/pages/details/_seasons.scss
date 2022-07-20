@@ -40,7 +40,8 @@
 
     &__section {
         &-content {
-            padding: 20px 0;
+            padding: 20px 0 50px;
+            border-bottom: 1px solid rgba($white_theme, 0.4);
         }
     }
 
@@ -78,6 +79,10 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 25px;
+            }
+
+            .cf_single-movie__credits {
+                padding-bottom: 0;
             }
         }
 
