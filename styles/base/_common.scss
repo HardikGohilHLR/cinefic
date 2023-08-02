@@ -1,0 +1,88 @@
+// Common css
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Gilroy', sans-serif; }
+ol, ul { list-style: none; } 
+body { overflow-x: hidden; font-size: 62.5%; }
+a { display: inline-block; text-decoration: none; }
+img { width: 100%; font-size: 0; }
+input { outline: none; }
+button { background: none; outline: none; border: none; cursor: pointer; }
+
+body, * {
+	&::-webkit-scrollbar { width: 4px; height: 4px; }
+	&::-webkit-scrollbar-track { background: rgba(#bdc3c7, 0.5); }
+	&::-webkit-scrollbar-thumb { background: #0b2854; }
+}
+
+// Fonts
+@font-face {
+    font-family: $gilroy-font;
+    font-weight: 500;
+    src: url('../fonts/Gilroy-Medium.woff') format('woff');
+}
+@font-face {
+    font-family: $gilroy-font;
+    font-weight: 600;
+    src: url('../fonts/Gilroy-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: $gilroy-font;
+    font-weight: 700;
+    src: url('../fonts/Gilroy-Bold.woff') format('woff');
+}
+
+h1 { @include fontStyle(700, 32, 44, $black); letter-spacing: 0.4px; }
+h2 { @include fontStyle(700, 30, 42, $black); letter-spacing: 0.4px; }
+h3 { @include fontStyle(700, 24, 30, $black); letter-spacing: 0.4px; }
+h4 { @include fontStyle(600, 20, 24, $black); letter-spacing: 0.4px; }
+h5 { @include fontStyle(600, 16, 20, $black); }
+
+strong { font-weight: 700 !important; }
+em { font-style: italic !important; }
+
+
+.fb_layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.fb_content {
+    overflow-y: auto;
+    flex: 1 0;
+}
+
+.cf_container { max-width: 1240px; width: 100%; margin: 0 auto; padding: 0 20px; }
+
+.fb_block { display: block; } 
+
+// Flex Classes
+.d_flex { display: flex; } 
+.d_flex-column { flex-direction: column; } 
+.d_align-center { align-items: center; }
+.d_content-end { justify-content: flex-end; }
+.d_content-center { justify-content: center; }
+.d_content-between { justify-content: space-between; }
+
+.fb_text-center { text-align: center; }
+.fb_text-right { text-align: right; }
+.fb_text-right { text-align: right; }
+
+.cf_text-c { text-transform: capitalize; }
+
+.cf_pointer-none { pointer-events: none; }
+
+// Grid CSS  
+.fb_row { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+
+.ellipsis { display: block; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
+.ellipsis-1 { -webkit-line-clamp: 1; }
+.ellipsis-2 { -webkit-line-clamp: 2; }
+.ellipsis-3 { -webkit-line-clamp: 3; }
+.ellipsis-4 { -webkit-line-clamp: 4; }
+.ellipsis-5 { -webkit-line-clamp: 5; }
+.ellipsis-6 { -webkit-line-clamp: 6; }
+.ellipsis-7 { -webkit-line-clamp: 7; }
+.ellipsis-8 { -webkit-line-clamp: 8; }
+.ellipsis-9 { -webkit-line-clamp: 9; }
