@@ -5,7 +5,7 @@ import React from 'react';
 const Header = () => {
     return (
         <header>
-            <div className="cf_header">
+            {/* <div className="cf_header">
 
                 <div className="cf_logo">
                     <Link href="/">
@@ -21,7 +21,7 @@ const Header = () => {
                     </ul>
                 </div>
 
-            </div>
+            </div> */}
 
         </header>
     )

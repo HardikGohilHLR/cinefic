@@ -4,6 +4,7 @@ import '@/styles/index.scss';
 
 import axios from '@/app/api/axios';
 import Banner from '@/components/banner';
+import UpcomingMovies from '@/components/movies/upcoming';
 
 const useMovies = async () => {
     const response = await axios.get('movie/now_playing');
@@ -16,7 +17,13 @@ const Home = async () => {
 
 	return (
 		<>
+
+			{/* Banner */}
 			<Banner movies={latestReleases} />
+
+			{/* Upcoming Movies */}
+			<UpcomingMovies />
+
 		</>
 	)
 }

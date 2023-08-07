@@ -13,7 +13,6 @@ const Banner = ({ movies }: any) => {
             slidesToShow: 1,
             autoplay: false,
             slidesToScroll: 1,
-            variableWidth: true,
             infinite: false,
             arrows: false,
         }
@@ -21,7 +20,7 @@ const Banner = ({ movies }: any) => {
 
     return (
         <>
-            <Slider {...sliderOptions()} className="cf_banner">
+            <Slider {...sliderOptions()} className="cf_head">
                 {
                     movies?.map((movie: any) => {
                         return (

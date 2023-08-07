@@ -4,6 +4,7 @@ import moment from 'moment';
 import axios from '@/app/api/axios';
 
 import { IGenre } from '@/types/interface';
+import GetImage from '@/components/utilities/get-image';
 
 const useMovie = async (id: string) => {
     const response = await axios.get(`movie/${id}`);
@@ -28,10 +29,12 @@ const Movie = ({ movie }: any) => {
 
     return (
         <>
-            <div className="cf_movie-banner">
-                <div className="cf_movie-banner-content">
-                    <div className="cf_movie-banner-content-info left">
+            <div className="cf_banner">
+                <div className="cf_banner-content">
+                    <div className="cf_banner-content-info left">
+
                         <h5>Release Date: {moment(movie?.release_date)?.format('MMM DD')}</h5>
+
                         <h1>{movie?.title}</h1>
 
                         <h1>{movieDetails?.status}</h1>
@@ -58,14 +61,13 @@ const Movie = ({ movie }: any) => {
                         </div>
                     </div>
 
-                    <div className="cf_movie-banner-content-info right">
+                    <div className="cf_banner-content-info right">
                         <p>{movie?.overview}</p>
                     </div>
                 </div>
 
-                <div className="cf_movie-banner-img">
-                    <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
-
+                <div className="cf_banner-img">
+                    <GetImage data={movie} path="backdrop_path" />
                 </div>
             </div>
         </>
